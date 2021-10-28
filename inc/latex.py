@@ -1,15 +1,14 @@
 import os
 import logging
 import shutil
-import jsonpickle
 from distutils.dir_util import copy_tree, mkpath
 from ebbs import Builder
 
-class wordpress_plugin(Builder):
-    def __init__(self, name="Wordpress Plugin Builder"):
+class latex(Builder):
+    def __init__(self, name="LaTeX document builder"):
         super().__init__(name)
     
-        self.supportedProjectTypes.append("plugin")
+        self.supportedProjectTypes.append("doc")
 
     #Required Builder method. See that class for details.
     def Build(self):
