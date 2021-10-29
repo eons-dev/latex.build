@@ -21,4 +21,4 @@ class latex(Builder):
         copy_tree(self.srcPath, os.path.join(self.buildPath))
         os.chdir(self.buildPath)
         self.RunCommand("latex -interaction=nonstopmode main.tex")
-        self.RunCommand("latex -interaction=nonstopmode main.tex")
+        self.RunCommand("pdflatex -interaction=nonstopmode main.tex")
