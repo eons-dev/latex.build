@@ -12,13 +12,7 @@ class latex(Builder):
 
     #Required Builder method. See that class for details.
     def Build(this):
-        if os.path.exists(this.buildPath):
-            logging.info(f"DELETING {this.buildPath}")
-            shutil.rmtree(this.buildPath)
-
-        logging.info(f"Using build path {this.buildPath}")
-        mkpath(this.buildPath)
-        copy_tree(this.srcPath, os.path.join(this.buildPath))
-        os.chdir(this.buildPath)
-        this.RunCommand("latex -interaction=nonstopmode main.tex")
+        copy_tree(this.incPath, this.buildPath)
+        copy_tree(this.srcPath, this.buildPath)
+        this.RunCommand("pdflatex -interaction=nonstopmode main.tex")
         this.RunCommand("pdflatex -interaction=nonstopmode main.tex")
