@@ -14,5 +14,5 @@ class latex(Builder):
     def Build(this):
         copy_tree(this.incPath, this.buildPath)
         copy_tree(this.srcPath, this.buildPath)
-        this.RunCommand("pdflatex -interaction=nonstopmode main.tex")
-        this.RunCommand("pdflatex -interaction=nonstopmode main.tex")
+        this.RunCommand("lualatex -interaction=nonstopmode main.tex")
+        this.RunCommand("lualatex -interaction=nonstopmode main.tex")
