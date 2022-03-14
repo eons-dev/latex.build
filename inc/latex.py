@@ -12,7 +12,10 @@ class latex(Builder):
 
     #Required Builder method. See that class for details.
     def Build(this):
-        copy_tree(this.incPath, this.buildPath)
+
+        if (this.incPath is not None):
+            copy_tree(this.incPath, this.buildPath)
+
         copy_tree(this.srcPath, this.buildPath)
         this.RunCommand("lualatex -interaction=nonstopmode main.tex")
         this.RunCommand("lualatex -interaction=nonstopmode main.tex")
