@@ -1,7 +1,7 @@
 import os
 import logging
 import shutil
-from distutils.dir_util import copy_tree, mkpath
+from distutils.dir_util import copy_tree
 from ebbs import Builder
 
 class latex(Builder):
